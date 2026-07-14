@@ -1,0 +1,32 @@
+{
+  "name": "SecureChat - AES-256 Encrypted",
+  "short_name": "SecureChat",
+  "description": "Chat aman dengan enkripsi AES-256-GCM end-to-end",
+  "start_url": "/chat/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00b894",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["communication", "security"],
+  "screenshots": [
+    {
+      "src": "screenshot.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    }
+  ]
+}
