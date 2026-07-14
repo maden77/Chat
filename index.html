@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#00b894">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>SecureChat - AES-256 Encrypted</title>
+    
+    <!-- Base URL untuk GitHub Pages di /chat/ -->
+    <base href="/chat/">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-box">
+            <div class="login-icon">🔐</div>
+            <h1>SecureChat</h1>
+            <p class="login-subtitle">Enkripsi AES-256-GCM</p>
+            <div class="login-form">
+                <div class="input-group">
+                    <label for="password-input">Masukkan Sandi</label>
+                    <input type="password" id="password-input" placeholder="••••••••" autocomplete="current-password">
+                    <button id="toggle-password" class="toggle-password">👁️</button>
+                </div>
+                <div class="password-strength" id="password-strength">
+                    <span class="strength-bar"></span>
+                    <span class="strength-text">Kosong</span>
+                </div>
+                <button id="login-button" class="login-button" disabled>Buka Chat 🔓</button>
+                <p class="login-hint">Gunakan sandi minimal 12 karakter dengan kombinasi huruf, angka, dan simbol</p>
+            </div>
+            <div class="security-badge">
+                <span>🛡️ AES-256-GCM</span>
+                <span>•</span>
+                <span>🔑 PBKDF2</span>
+                <span>•</span>
+                <span>🧂 128-bit Salt</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chat-screen" class="chat-screen" style="display:none">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-title">
+                <span class="lock-icon">🔒</span>
+                <h1>SecureChat</h1>
+            </div>
+            <div class="header-controls">
+                <span id="status-indicator" class="status-online">● Online</span>
+                <button id="logout-button" class="logout-button" title="Keluar">🚪</button>
+            </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div id="chat-container" class="chat-container">
+            <div id="messages" class="messages">
+                <div class="welcome-message">
+                    <div class="welcome-icon">💬</div>
+                    <p>Koneksi aman dengan <strong>AES-256-GCM</strong></p>
+                    <p class="hint">Semua pesan dienkripsi end-to-end</p>
+                    <div class="security-info">
+                        <span>🔐 Enkripsi: AES-256-GCM</span>
+                        <span>🔑 Kunci: PBKDF2 (100.000 iterasi)</span>
+                        <span>🧂 Salt: 128-bit random</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <div class="input-container">
+                <textarea id="message-input" rows="1" placeholder="Ketik pesan aman..." maxlength="4000"></textarea>
+                <button id="send-button" class="send-button" disabled>
+                    <span>➤</span>
+                </button>
+            </div>
+            <div class="input-footer">
+                <span id="char-count">0/4000</span>
+                <span id="encryption-status" class="encrypted-status">🔒 AES-256-GCM</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="crypto-utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
